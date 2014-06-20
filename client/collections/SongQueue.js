@@ -23,11 +23,7 @@ var SongQueue = Songs.extend({
     this.on('dequeue', function(song){
       this.remove(song);
       // remove from local storage
-      localStorage.removeItem(song.cid);
-      // console.dir(localStorage.getItem(song.cid));
-      // console.dir(localStorage.length);
-      // console.dir(localStorage)
-      // console.dir(localStorage === null);
+      //localStorage.removeItem(song.cid);
     });
   },
 

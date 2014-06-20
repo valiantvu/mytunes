@@ -30,11 +30,13 @@
 
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
-
-        if (localStorage.length > 0){
-          _.each(localStorage, function(val, key){
-            if (library.get('c' + key)){
-              app.get('songQueue').add(library.get('c' + key));
+        if (localStorage.getItem('arr') === null){
+          localStorage.setItem('arr', []);
+        }
+        if (localStorage.getItem('arr').split(',').length > 0){
+          _.each(localStorage.getItem('arr').split(','), function(val){
+            if (library.get(val)){
+              app.get('songQueue').add(library.get(val));
             }
           });
         }

@@ -15,6 +15,7 @@ var AppModel = Backbone.Model.extend({
 
 
 
+
     params.library.on('play', function(song){
       this.set('currentSong', song);
     }, this);
@@ -22,10 +23,9 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('enqueue', function(song){
       this.get('songQueue').add(song);
-      // add to local storage
-      localStorage.setItem(song.cid, true);
-      // console.dir(song.cid);
-      // console.dir(localStorage.getItem(song.cid));
+      var cids = localStorage.getItem('arr').split(',')//.push(song.cid);
+      cids.push(song.cid);
+      localStorage.setItem('arr', cids);
     }, this);
 
     this.get('songQueue').on('play', function(song){
