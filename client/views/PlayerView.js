@@ -10,7 +10,7 @@ var PlayerView = Backbone.View.extend({
 
   events: {
     'ended': function(){
-      this.model.ended();//grab app.songQueue.at(0)
+      this.model.ended();
     }
   },
 

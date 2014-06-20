@@ -2,7 +2,7 @@
 var LibraryView = Backbone.View.extend({
 
   tagName: "table",
-
+  className: "table table-striped",
   initialize: function() {
     this.render();
   },
@@ -12,7 +12,8 @@ var LibraryView = Backbone.View.extend({
     // see http://api.jquery.com/detach/
     this.$el.children().detach();
 
-    this.$el.html('<th>Library</th>').append(
+    this.$el.html('<h3 class="category">Library</h3>').append(
+    // this.$el.html('<th>Library</th>').append(
       this.collection.map(function(song){
         return new LibraryEntryView({model: song}).render();
       })
