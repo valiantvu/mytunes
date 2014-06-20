@@ -21,28 +21,21 @@
     <script src="views/AppView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
     <script src="views/SongQueueView.js"></script>
+    <script src="routers/Router.js"></script>
 
     <script>
       $(function(){
         // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
+        var myTunes = new myTunesApp();
+        // var library = new Songs(songData);
+        // var app = new AppModel({library: library});
 
-        // build a view for the top level of the whole app
-        var appView = new AppView({model: app});
-        if (localStorage.getItem('arr') === null){
-          localStorage.setItem('arr', []);
-        }
-        if (localStorage.getItem('arr').split(',').length > 0){
-          _.each(localStorage.getItem('arr').split(','), function(val){
-            if (library.get(val)){
-              app.get('songQueue').add(library.get(val));
-            }
-          });
-        }
+        // // build a view for the top level of the whole app
+        // var appView = new AppView({model: app});
+
 
         // put the view onto the screen
-        $('#main').append(appView.render());
+        // $('#main').append(appView.render());
         $('audio').before('<h1 class="category">AllieyaTunes</h1>');
       });
     </script>
