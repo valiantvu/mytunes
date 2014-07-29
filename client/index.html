@@ -3,6 +3,7 @@
   <body>
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
@@ -18,19 +19,32 @@
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/AppView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
+    <script src="views/SongQueueView.js"></script>
+    <script src="routers/Router.js"></script>
 
     <script>
       $(function(){
         // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
+        var myTunes = new myTunesApp();
+        // var library = new Songs(songData);
+        // var app = new AppModel({library: library});
 
-        // build a view for the top level of the whole app
-        var appView = new AppView({model: app});
+        // // build a view for the top level of the whole app
+        // var appView = new AppView({model: app});
+
 
         // put the view onto the screen
-        $('body').append(appView.render());
+        // $('#main').append(appView.render());
+        $('audio').before('<h1 class="category">AllieyaTunes</h1>');
       });
     </script>
+    <div class='container-fluid'>
+        <div class='row'>
+            <div class='col-md-3'></div>
+            <div id="main" class='col-md-6'></div>
+            <div class='col-md-3'></div>
+        </div>
+    </div>
   </body>
 </html>
